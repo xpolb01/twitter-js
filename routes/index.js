@@ -1,14 +1,11 @@
-function Book(author, title){
-	this.author = author;
-	this.title = title;
-}
+const express = require('express');
+const router = express.Router();
+// could use one line instead: const router = require('express').Router();
+const tweetBank = require('../tweetBank');
 
-var mockingbird = new Book("Lee", "Mockingbird");
-var harryPotter = new Book("Rowling", "Harry Potter");
-var hobbit = new Book("Tolkien", "The Hobbit");
+router.get('/', function (req, res) {
+  var tweets = tweetBank.list();
+  res.render( 'index', { tweets: tweets } );
+});
 
-module.exports = {
-	mockingbird: mockingbird,
-	harryPotter: harryPotter,
-	hobbit: hobbit
-};
+module.exports = router;
