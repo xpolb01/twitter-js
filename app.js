@@ -5,6 +5,9 @@ const chalk = require('chalk');
 const volleyball = require('volleyball');
 const nunjucks = require('nunjucks');
 const tweets = require('./tweetBank');
+const morgan = require('morgan');
+
+var logger = morgan('dev');
 // const books = require('./routes');
 
 app.listen(3000, function() {
